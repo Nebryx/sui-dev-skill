@@ -1,37 +1,18 @@
-# Advanced contract examples
-
-// Events example
-module mypackage::events_example {
-    struct Event has store {
-        message: vector<u8>,
+// Extended Move module with dynamic fields example
+module mypackage::advanced_examples {
+    struct DynamicFieldExample has key {
+        id: u64,
+        data: vector<u8>,
     }
 
-    public fun emit_event(message: vector<u8>) {
-        let event = Event { message };
-        // Typically this would call event::emit or similar
-    }
-}
-
-// Generics example
-module mypackage::generics_example {
-    struct Wrapper<T> has copy, drop, store {
-        value: T,
+    public fun create_example(id: u64, data: vector<u8>): DynamicFieldExample {
+        DynamicFieldExample { id, data }
     }
 
-    public fun wrap<T>(val: T): Wrapper<T> {
-        Wrapper { value: val }
+    #[test]
+    public fun test_dynamic_field_example() {
+        let example = create_example(1, b"example_data".to_vector());
+        assert!(example.id == 1, 0);
+        assert!(example.data == b"example_data".to_vector(), 1);
     }
 }
-
-// Witness pattern example
-module mypackage::witness_example {
-    struct Witness has key {}
-
-    public fun verify_witness(w: &Witness) {
-        // Verify witness logic
-    }
-}
-
-// Usage:
-// let w = Witness {};
-// verify_witness(&w);

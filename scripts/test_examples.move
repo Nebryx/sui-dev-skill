@@ -5,6 +5,7 @@ module mypackage::test_example {
     fun test_create() {
         let obj = mypackage::ownership_example::create(42, b"test");
         assert!(obj.id == 42, 1);
+        assert!(obj.value == b"test", 2);
     }
 
     #[test]

@@ -13,6 +13,19 @@ fi
 echo "Building the Sui Move package..."
 sui move build
 
+if [ -z "$1" ]; then
+  GAS_BUDGET=10000
+else
+  GAS_BUDGET=$1
+fi
+
+sui client publish --gas-budget $GAS_BUDGET
+
+if [ $? -ne 0 ]; then
+  echo "Error: Deployment failed. Please check your Sui CLI and network connection."
+  exit 1
+fi
+
 echo "Publishing the package with gas budget 10000..."
 sui client publish --gas-budget 10000
 
