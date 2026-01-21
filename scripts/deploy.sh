@@ -2,7 +2,7 @@
 
 # Automated deployment script for Sui Move contract
 
-set -e
+set -Eeuo pipefail
 
 if ! command -v sui &> /dev/null
 then
