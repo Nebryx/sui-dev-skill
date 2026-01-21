@@ -20,9 +20,9 @@ else
 fi
 
 echo "Publishing the package with gas budget $GAS_BUDGET..."
-if ! sui client publish --gas-budget "$GAS_BUDGET"; then
+sui client publish --gas-budget "$GAS_BUDGET" || {
   echo "Error: Deployment failed. Please check your Sui CLI and network connection."
   exit 1
-fi
+}
 
 echo "Deployment completed successfully."
