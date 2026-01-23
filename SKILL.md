@@ -1,44 +1,152 @@
 ---
 name: sui-move
-description: Sui Move development skill for building and maintaining smart contracts on the Sui blockchain. Use when working on Sui Move including environment setup, project structure, modules, objects and ownership, coin resource management, testing, collections, and contract upgrade strategies.
+description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, dynamic fields, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
+version: 2.0.0
 ---
 
 # Sui Move Development Skill
 
-This skill supports developers working with Sui Move by providing guidance, reusable code snippets, references, and templates for common development tasks in the Sui Move ecosystem.
+This skill provides comprehensive guidance, reusable code snippets, reference documentation, and templates for Sui blockchain Move smart contract development.
 
-## Core Areas Covered
+## Core Capabilities
 
-- Environment setup and quickstart scripting
-- Project structure, module creation, and deployment
-- Understanding objects, ownership, and capabilities
-- Working with coin resources and the Sui Framework
-- Managing collections and dynamic fields
-- Writing and running tests for Move modules
-- Contract upgrade patterns, migration, and encoding
+### 1. Move Language Fundamentals
+- Type system and primitive types (u8, u64, u128, bool, address, vector)
+- Struct definitions and abilities system (copy, drop, store, key)
+- Function definitions, visibility, and generics
+- Borrowing and references (&T, &mut T)
+- Copy/Move semantics
 
-## Using the Skill
+### 2. Sui Object Model
+- Object definition (structs with `key` ability, first field must be `id: UID`)
+- Ownership types: Address-owned, Shared, Immutable, Object-owned
+- Object lifecycle management
+- UID and TxContext usage
 
-When asked about Sui Move development tasks, this skill provides:
+### 3. Storage Functions
+- `transfer::transfer` / `transfer::public_transfer` - Object transfer
+- `transfer::share_object` / `transfer::public_share_object` - Shared objects
+- `transfer::freeze_object` - Freeze as immutable
+- `transfer::public_receive` - Receive objects
 
-- Shell scripts for environment and tool installation
-- Move module templates and example scripts
-- Reference documentation on Move language features and Sui-specific concepts
-- Diagrams and visual assets to explain ownership, lifecycle, and collections
-- Guidance and code samples for testing and upgrading contracts
+### 4. Dynamic Fields
+- `sui::dynamic_field` module usage
+- Dynamic add/remove/borrow operations
+- Dynamic Object Fields
 
-Load additional references and assets as needed for detailed explanations or code examples.
+### 5. Programmable Transaction Blocks (PTB)
+- PTB concepts and advantages
+- Building PTBs with TypeScript SDK
+- CLI commands: split-coins, merge-coins, transfer-objects
+- Multi-command composition
+
+### 6. Module and Package Management
+- Move.toml configuration
+- Module initialization (init function)
+- One Time Witness (OTW) pattern
+- Publisher object acquisition
+
+### 7. Testing and Deployment
+- Unit test writing (#[test])
+- Test attributes (#[expected_failure])
+- sui move build / test / publish
+- Gas budget management
+
+### 8. Contract Upgrades
+- Upgrade strategies and migration
+- Version compatibility checking
+- BCS serialization
 
 ---
 
-## References Directory
+## Usage Guide
 
-Contains detailed documentation organized by core topics like environment, ownership, coin resource, testing, and upgrades.
+When asked about Sui Move development tasks, this skill provides:
 
-## Scripts Directory
+1. **Code Templates** - Standard module structure, object definitions, transfer patterns
+2. **Shell Scripts** - Environment installation, build and deployment automation
+3. **Reference Documentation** - Move language features, Sui-specific concepts
+4. **Best Practices** - Security patterns, error handling, upgrade strategies
 
-Includes setup scripts, Move code samples, and testing scripts.
+---
 
-## Assets Directory
+## Quick Reference
 
-Visual aids such as flowcharts, diagrams, terminal screenshots, and cheat sheets.
+### Object Definition Template
+```move
+module package::module_name {
+    use sui::object::{Self, UID};
+    use sui::transfer;
+    use sui::tx_context::{Self, TxContext};
+
+    /// A struct with `key` ability is an object
+    public struct MyObject has key {
+        id: UID,
+        value: u64,
+    }
+
+    /// Module initialization function
+    fun init(ctx: &mut TxContext) {
+        let obj = MyObject {
+            id: object::new(ctx),
+            value: 0,
+        };
+        transfer::transfer(obj, tx_context::sender(ctx));
+    }
+}
+```
+
+### Abilities Quick Reference
+| Ability | Meaning | Use Case |
+|---------|---------|----------|
+| `copy` | Value can be copied | Primitive types, config data |
+| `drop` | Value can be implicitly dropped | Temporary data, no explicit destruction needed |
+| `store` | Value can be stored in global storage | Can be embedded in other objects, public transfer |
+| `key` | Value can be used as object | Top-level objects, requires UID |
+
+### Ownership Types Quick Reference
+| Type | Creation Method | Access |
+|------|-----------------|--------|
+| Address-owned | `transfer::transfer` | Owner only |
+| Shared | `transfer::share_object` | Anyone (mutable/immutable) |
+| Immutable | `transfer::freeze_object` | Anyone (read-only) |
+
+---
+
+## Directory Structure
+
+```
+sui-dev-skill/
+├── SKILL.md              # Main skill file
+├── README.md             # Project documentation
+├── references/           # Reference documentation
+│   ├── core_topics.md    # Core concepts detailed guide
+│   ├── object_model.md   # Object model deep dive
+│   ├── ptb_guide.md      # PTB usage guide
+│   └── abilities.md      # Abilities system guide
+├── scripts/              # Scripts and code examples
+│   ├── setup_env.sh      # Environment setup script
+│   ├── deploy.sh         # Deployment script
+│   ├── example_module.move
+│   ├── ownership_examples.move
+│   ├── dynamic_fields_example.move
+│   └── test_examples.move
+└── templates/            # Project templates
+    └── basic_module/     # Basic module template
+```
+
+---
+
+## External Resources
+
+- [Move Book](https://move-book.com) - Official Move language tutorial
+- [Sui Documentation](https://docs.sui.io) - Sui platform documentation
+- [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
+
+---
+
+## Version Information
+
+- Skill Version: 2.0.0
+- Compatible Sui Version: Latest stable
+- Last Updated: 2024

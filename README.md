@@ -1,34 +1,153 @@
 # Sui Move Development Skill
 
-This skill provides comprehensive resources, scripts, and references for developers working on Sui Move smart contracts on the Sui blockchain.
+A comprehensive skill for Sui blockchain Move smart contract development. This skill provides guidance, code templates, reference documentation, and best practices for building on Sui.
 
 ## Features
 
-- Environment setup and quickstart scripts for installing dependencies and preparing your development environment.
-- Move module templates and code examples covering ownership, transfers, events, generics, and witness pattern.
-- Utility scripts for automating contract deployment and detecting version conflicts during upgrades.
-- Reference documentation covering core concepts such as objects, ownership, coin resources, collections, testing, and contract upgrade strategies.
-- Visual assets including diagrams for ownership lifecycle, collections, and upgrade process.
+- **Move Language Fundamentals** - Types, abilities, borrowing, generics
+- **Sui Object Model** - Objects, ownership, transfers, dynamic fields
+- **Programmable Transaction Blocks (PTB)** - Multi-command transactions
+- **Testing Patterns** - Unit tests, scenario tests, expected failures
+- **Deployment Automation** - Build, test, and publish scripts
+- **Upgrade Strategies** - Version management and migration patterns
 
 ## Directory Structure
 
-- `scripts/` — shell scripts and Move code samples for development and testing.
-- `references/` — markdown documentation explaining key Sui Move concepts and workflows.
-- `assets/` — visual aids and diagrams supporting understanding of core concepts.
-- `SKILL.md` — skill metadata and usage instructions for Claude.
+```
+sui-dev-skill/
+├── SKILL.md                    # Main skill definition
+├── README.md                   # This file
+├── references/                 # Reference documentation
+│   ├── core_topics.md          # Core concepts guide
+│   ├── object_model.md         # Object model deep dive
+│   └── ptb_guide.md            # PTB usage guide
+└── scripts/                    # Code examples and utilities
+    ├── setup_env.sh            # Environment setup
+    ├── deploy.sh               # Deployment automation
+    ├── example_module.move     # Basic module template
+    ├── ownership_examples.move # Ownership patterns
+    ├── advanced_examples.move  # Dynamic fields, events, OTW
+    ├── test_examples.move      # Testing patterns
+    ├── version_check.sh        # Version checking
+    └── version_conflict_check.sh
+```
 
-## Usage
+## Quick Start
 
-Use this skill when you are working on building, testing, or upgrading Sui Move smart contracts. It offers reusable code snippets, shell utilities, and reference docs that accelerate development and help ensure best practices.
+### 1. Environment Setup
 
-## Getting Started
+```bash
+# Run the setup script
+./scripts/setup_env.sh
 
-Run the `setup_env.sh` script in `scripts/` to install Rust, Sui CLI, and get a quickstart environment.
+# Or manually install
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo install --git https://github.com/MystenLabs/sui.git --branch main sui-cli
+```
 
-Example usage of Move module templates is included in the `example_module.move` and advanced examples in `advanced_examples.move`.
+### 2. Create a New Project
 
-Automate your deployments with `deploy.sh` and use `version_check.sh` to help identify differences between module versions during upgrades.
+```bash
+sui move new my_project
+cd my_project
+```
 
-## Contribution
+### 3. Build and Test
 
-Contributions and improvements are welcome. Please follow the Sui Move best practices and keep scripts and docs clear and concise.
+```bash
+sui move build
+sui move test
+```
+
+### 4. Deploy
+
+```bash
+sui client publish --gas-budget 100000000
+```
+
+## Core Concepts
+
+### Object Definition
+
+```move
+public struct MyObject has key, store {
+    id: UID,
+    value: u64,
+}
+```
+
+### Ownership Types
+
+| Type | Creation | Access |
+|------|----------|--------|
+| Address-owned | `transfer::transfer` | Owner only |
+| Shared | `transfer::share_object` | Anyone |
+| Immutable | `transfer::freeze_object` | Anyone (read-only) |
+
+### Abilities
+
+| Ability | Meaning |
+|---------|---------|
+| `copy` | Can be copied |
+| `drop` | Can be dropped |
+| `store` | Can be stored in objects |
+| `key` | Can be an object |
+
+## Code Examples
+
+### Basic Module
+
+```move
+module package::example {
+    use sui::object::{Self, UID};
+    use sui::transfer;
+    use sui::tx_context::{Self, TxContext};
+
+    public struct Item has key, store {
+        id: UID,
+        value: u64,
+    }
+
+    public fun create(value: u64, ctx: &mut TxContext) {
+        let item = Item {
+            id: object::new(ctx),
+            value,
+        };
+        transfer::transfer(item, tx_context::sender(ctx));
+    }
+}
+```
+
+### PTB with TypeScript
+
+```typescript
+import { Transaction } from '@mysten/sui/transactions';
+
+const tx = new Transaction();
+const [coin] = tx.splitCoins(tx.gas, [tx.pure('u64', 1000)]);
+tx.transferObjects([coin], tx.pure('address', recipient));
+
+await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
+```
+
+## Reference Documentation
+
+- [`references/core_topics.md`](references/core_topics.md) - Complete guide to Move and Sui concepts
+- [`references/object_model.md`](references/object_model.md) - Deep dive into Sui's object model
+- [`references/ptb_guide.md`](references/ptb_guide.md) - Programmable Transaction Blocks guide
+
+## External Resources
+
+- [Move Book](https://move-book.com) - Official Move language tutorial
+- [Sui Documentation](https://docs.sui.io) - Sui platform documentation
+- [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
+- [Sui TypeScript SDK](https://sdk.mystenlabs.com/typescript) - TypeScript SDK documentation
+
+## Version
+
+- Skill Version: 2.0.0
+- Compatible with: Sui latest stable release
+
+## Contributing
+
+Contributions are welcome! Please follow Sui Move best practices and keep documentation clear and concise.
