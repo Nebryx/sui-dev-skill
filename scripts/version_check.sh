@@ -1,4 +1,5 @@
 #!/bin/bash
+set -Eeuo pipefail
 
 # Version conflict detection script
 
@@ -12,17 +13,9 @@ fi
 module_old=$1
 module_new=$2
 
-if ! command -v diff &> /dev/null
-then
-    echo "diff command not found"
-    exit 1
+if ! diff "$module_old" "$module_new" >/dev/null 2>&1; then
+  echo "Differences detected between $module_old and $module_new"
+  exit 1
 fi
 
-echo "Comparing $module_old and $module_new..."
-diff $module_old $module_new
-
-if [ $? -eq 0 ]; then
-  echo "No differences found."
-else
-  echo "Differences detected between modules."
-fi
+echo "No differences found."
