@@ -2,6 +2,8 @@
 
 # Define a simple object with ownership capabilities
 module mypackage::ownership_example {
+    use sui::transfer::transfer;
+
     struct OwnedObject has key {
         id: u64,
         data: vector<u8>,
@@ -12,8 +14,7 @@ module mypackage::ownership_example {
     }
 
     public fun transfer(obj: OwnedObject, new_owner: address) {
-        // Dummy transfer implementation
-        // Real transfer logic would involve object capabilities
+        transfer(obj, new_owner);
     }
 }
 
