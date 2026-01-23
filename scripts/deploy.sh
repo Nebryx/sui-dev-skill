@@ -2,7 +2,7 @@
 
 # Automated deployment script for Sui Move contract
 
-set -e
+set -Eeuo pipefail
 
 if ! command -v sui &> /dev/null
 then
@@ -19,14 +19,10 @@ else
   GAS_BUDGET=$1
 fi
 
-sui client publish --gas-budget $GAS_BUDGET
-
-if [ $? -ne 0 ]; then
+echo "Publishing the package with gas budget $GAS_BUDGET..."
+sui client publish --gas-budget "$GAS_BUDGET" || {
   echo "Error: Deployment failed. Please check your Sui CLI and network connection."
   exit 1
-fi
-
-echo "Publishing the package with gas budget 10000..."
-sui client publish --gas-budget 10000
+}
 
 echo "Deployment completed successfully."
