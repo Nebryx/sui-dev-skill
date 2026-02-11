@@ -1,6 +1,6 @@
 ---
 name: sui-move
-description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, dynamic fields, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
+description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, dynamic fields, toolchain setup with suiup, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
 version: 2.0.0
 ---
 
@@ -57,6 +57,12 @@ This skill provides comprehensive guidance, reusable code snippets, reference do
 - Version compatibility checking
 - BCS serialization
 
+### 9. Toolchain Management with suiup
+- Install and manage Sui ecosystem CLIs with `suiup`
+- Pin network-aligned versions (e.g., `sui@testnet`, `sui@devnet`)
+- Switch defaults with `suiup default set`
+- Diagnose PATH/version issues with `suiup which` and `suiup doctor`
+
 ---
 
 ## Usage Guide
@@ -67,6 +73,8 @@ When asked about Sui Move development tasks, this skill provides:
 2. **Shell Scripts** - Environment installation, build and deployment automation
 3. **Reference Documentation** - Move language features, Sui-specific concepts
 4. **Best Practices** - Security patterns, error handling, upgrade strategies
+
+For toolchain install/version selection tasks, read `references/suiup.md` first, then apply `scripts/setup_suiup.sh` for a reproducible setup flow.
 
 ---
 
@@ -122,9 +130,11 @@ sui-dev-skill/
 ├── references/                  # Reference documentation
 │   ├── core_topics.md           # Core concepts detailed guide
 │   ├── object_model.md          # Object model deep dive
-│   └── ptb_guide.md             # PTB usage guide
+│   ├── ptb_guide.md             # PTB usage guide
+│   └── suiup.md                 # Toolchain installation and version management
 └── scripts/                     # Scripts and code examples
     ├── setup_env.sh             # Environment setup script
+    ├── setup_suiup.sh           # Preferred toolchain bootstrap via suiup
     ├── deploy.sh                # Deployment script
     ├── version_check.sh         # Bytecode diff checker
     ├── version_conflict_check.sh # Directory conflict checker
@@ -141,6 +151,7 @@ sui-dev-skill/
 - [Move Book](https://move-book.com) - Official Move language tutorial
 - [Sui Documentation](https://docs.sui.io) - Sui platform documentation
 - [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
+- [suiup](https://github.com/MystenLabs/suiup) - Installer and version manager for Sui ecosystem CLIs
 
 ---
 

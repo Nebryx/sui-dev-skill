@@ -9,15 +9,22 @@
 
 ### 1.2 Quick Installation
 ```bash
+# Recommended: install and manage versions with suiup
+curl -sSfL https://raw.githubusercontent.com/Mystenlabs/suiup/main/install.sh | sh
+suiup install sui@testnet -y
+suiup show
+
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-# Install Sui CLI
+# Fallback: direct install Sui CLI
 cargo install --git https://github.com/MystenLabs/sui.git --branch main sui-cli
 
 # Verify installation
 sui --version
 ```
+
+For full `suiup` workflow and troubleshooting, see [`references/suiup.md`](suiup.md).
 
 ---
 
