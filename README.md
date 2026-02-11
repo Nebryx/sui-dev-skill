@@ -8,6 +8,7 @@ A comprehensive skill for Sui blockchain Move smart contract development. This s
 - **Sui Object Model** - Objects, ownership, transfers, dynamic fields
 - **Programmable Transaction Blocks (PTB)** - Multi-command transactions
 - **Sui TypeScript SDK** - Client setup, transaction execution, and signing workflows
+- **CTF Security Practice** - Learn exploit/defense patterns with MystenLabs CTF
 - **Testing Patterns** - Unit tests, scenario tests, expected failures
 - **Deployment Automation** - Build, test, and publish scripts
 - **Upgrade Strategies** - Version management and migration patterns
@@ -27,12 +28,14 @@ sui-dev-skill/
 │   ├── object_model.md         # Object model deep dive
 │   ├── ptb_guide.md            # PTB usage guide
 │   ├── sui-dapp-starter.md     # Full-stack starter guide
+│   ├── sui-ctf.md              # MystenLabs CTF guide
 │   ├── sui-ts-sdk.md           # TS SDK integration guide
 │   └── suiup.md                # suiup install/version guide
 └── scripts/                    # Code examples and utilities
     ├── setup_env.sh            # Environment setup
     ├── setup_suiup.sh          # Preferred setup via suiup
     ├── init_sui_dapp_starter.sh # Starter template bootstrap
+    ├── setup_sui_ctf.sh        # CTF repo bootstrap helper
     ├── deploy.sh               # Deployment automation
     ├── example_module.move     # Basic module template
     ├── ownership_examples.move # Ownership patterns
@@ -73,6 +76,9 @@ cd my_project
 
 # Or directly:
 pnpm create sui-dapp@latest
+
+# Option C: CTF practice environment
+./scripts/setup_sui_ctf.sh
 ```
 
 ### 3. Build and Test
@@ -160,6 +166,7 @@ await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
 - [`references/object_model.md`](references/object_model.md) - Deep dive into Sui's object model
 - [`references/ptb_guide.md`](references/ptb_guide.md) - Programmable Transaction Blocks guide
 - [`references/sui-dapp-starter.md`](references/sui-dapp-starter.md) - Full-stack starter setup and workflows
+- [`references/sui-ctf.md`](references/sui-ctf.md) - MystenLabs CTF setup and solving workflow
 - [`references/sui-ts-sdk.md`](references/sui-ts-sdk.md) - Sui TypeScript SDK client and transaction patterns
 - [`references/suiup.md`](references/suiup.md) - `suiup` install and version management
 
@@ -170,6 +177,7 @@ await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
 - [Sui Documentation](https://docs.sui.io) - Sui platform documentation
 - [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
 - [Sui TypeScript SDK](https://sdk.mystenlabs.com/sui) - Official SDK docs for Sui integrations
+- [MystenLabs CTF](https://github.com/MystenLabs/CTF) - Official Sui Move CTF challenges
 - [sui-dapp-starter](https://github.com/suiware/sui-dapp-starter) - Sui full-stack starter templates
 - [suiup](https://github.com/MystenLabs/suiup) - Sui ecosystem CLI version manager
 

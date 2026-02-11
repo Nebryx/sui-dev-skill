@@ -1,6 +1,6 @@
 ---
 name: sui-move
-description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, Sui TypeScript SDK usage, dynamic fields, toolchain setup with suiup, full-stack dApp bootstrapping with sui-dapp-starter, Move Book language semantics, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
+description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, Sui TypeScript SDK usage, dynamic fields, toolchain setup with suiup, full-stack dApp bootstrapping with sui-dapp-starter, Move Book language semantics, Sui Move CTF practice workflows, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
 version: 2.0.0
 ---
 
@@ -81,6 +81,12 @@ This skill provides comprehensive guidance, reusable code snippets, reference do
 - Work with keypairs, signatures, and faucet funding flows for Devnet/Testnet/localnet
 - Use modular SDK packages to keep integration code minimal and explicit
 
+### 13. Sui Move CTF Security Practice
+- Use MystenLabs CTF challenges for hands-on exploitation and defense practice
+- Analyze challenge contracts and write TypeScript solver scripts
+- Practice vulnerability classes around time gates, payments, randomness constraints, and staking state
+- Rehearse end-to-end workflow: setup, fund, exploit, and verify flag extraction
+
 ---
 
 ## Usage Guide
@@ -96,6 +102,7 @@ For toolchain install/version selection tasks, read `references/suiup.md` first,
 For full-stack project scaffolding tasks, read `references/sui-dapp-starter.md`, then use `scripts/init_sui_dapp_starter.sh` to bootstrap interactively.
 For Move language semantics and syntax decisions, read `references/move-book-essentials.md` first.
 For off-chain integration and transaction orchestration in TypeScript, read `references/sui-ts-sdk.md` first.
+For CTF challenge setup and solving workflows, read `references/sui-ctf.md`, then use `scripts/setup_sui_ctf.sh`.
 
 ---
 
@@ -154,12 +161,14 @@ sui-dev-skill/
 │   ├── object_model.md          # Object model deep dive
 │   ├── ptb_guide.md             # PTB usage guide
 │   ├── sui-dapp-starter.md      # Full-stack starter workflow and commands
+│   ├── sui-ctf.md               # MystenLabs CTF setup and challenge playbook
 │   ├── sui-ts-sdk.md            # Sui TS SDK client/tx/signing quick reference
 │   └── suiup.md                 # Toolchain installation and version management
 └── scripts/                     # Scripts and code examples
     ├── setup_env.sh             # Environment setup script
     ├── setup_suiup.sh           # Preferred toolchain bootstrap via suiup
     ├── init_sui_dapp_starter.sh # Bootstrap the sui-dapp-starter template
+    ├── setup_sui_ctf.sh         # Clone/setup MystenLabs CTF practice repo
     ├── deploy.sh                # Deployment script
     ├── version_check.sh         # Bytecode diff checker
     ├── version_conflict_check.sh # Directory conflict checker
@@ -178,6 +187,7 @@ sui-dev-skill/
 - [Sui Documentation](https://docs.sui.io) - Sui platform documentation
 - [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
 - [Sui TypeScript SDK](https://sdk.mystenlabs.com/sui) - Official TS SDK docs (v2+)
+- [MystenLabs CTF](https://github.com/MystenLabs/CTF) - Official Sui CTF challenge set
 - [suiup](https://github.com/MystenLabs/suiup) - Installer and version manager for Sui ecosystem CLIs
 - [sui-dapp-starter](https://github.com/suiware/sui-dapp-starter) - Full-stack Sui dApp starter template
 
