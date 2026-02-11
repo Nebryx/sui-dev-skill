@@ -117,22 +117,21 @@ module package::module_name {
 
 ```
 sui-dev-skill/
-├── SKILL.md              # Main skill file
-├── README.md             # Project documentation
-├── references/           # Reference documentation
-│   ├── core_topics.md    # Core concepts detailed guide
-│   ├── object_model.md   # Object model deep dive
-│   ├── ptb_guide.md      # PTB usage guide
-│   └── abilities.md      # Abilities system guide
-├── scripts/              # Scripts and code examples
-│   ├── setup_env.sh      # Environment setup script
-│   ├── deploy.sh         # Deployment script
-│   ├── example_module.move
-│   ├── ownership_examples.move
-│   ├── dynamic_fields_example.move
-│   └── test_examples.move
-└── templates/            # Project templates
-    └── basic_module/     # Basic module template
+├── SKILL.md                     # Main skill file
+├── README.md                    # Project documentation
+├── references/                  # Reference documentation
+│   ├── core_topics.md           # Core concepts detailed guide
+│   ├── object_model.md          # Object model deep dive
+│   └── ptb_guide.md             # PTB usage guide
+└── scripts/                     # Scripts and code examples
+    ├── setup_env.sh             # Environment setup script
+    ├── deploy.sh                # Deployment script
+    ├── version_check.sh         # Bytecode diff checker
+    ├── version_conflict_check.sh # Directory conflict checker
+    ├── example_module.move      # Basic module template
+    ├── ownership_examples.move  # Ownership patterns
+    ├── advanced_examples.move   # Dynamic fields/events/generics
+    └── test_examples.move       # Testing patterns
 ```
 
 ---

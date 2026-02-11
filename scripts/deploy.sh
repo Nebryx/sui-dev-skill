@@ -13,11 +13,7 @@ fi
 echo "Building the Sui Move package..."
 sui move build
 
-if [ -z "$1" ]; then
-  GAS_BUDGET=10000
-else
-  GAS_BUDGET=$1
-fi
+GAS_BUDGET=${1:-10000}
 
 echo "Publishing the package with gas budget $GAS_BUDGET..."
 sui client publish --gas-budget "$GAS_BUDGET" || {
