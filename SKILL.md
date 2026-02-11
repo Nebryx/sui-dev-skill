@@ -1,6 +1,6 @@
 ---
 name: sui-move
-description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, dynamic fields, toolchain setup with suiup, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
+description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, dynamic fields, toolchain setup with suiup, full-stack dApp bootstrapping with sui-dapp-starter, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
 version: 2.0.0
 ---
 
@@ -63,6 +63,12 @@ This skill provides comprehensive guidance, reusable code snippets, reference do
 - Switch defaults with `suiup default set`
 - Diagnose PATH/version issues with `suiup which` and `suiup doctor`
 
+### 10. Full-Stack dApp Bootstrapping
+- Scaffold production-ready Sui full-stack apps with `sui-dapp-starter`
+- Use CLI bootstrap (`pnpm create sui-dapp@latest`) or GitHub template mode
+- Initialize starter templates: Greeting (React), Greeting (Next.js), Counter (React)
+- Follow localnet workflow (`localnet:start`, `localnet:deploy`, `localnet:faucet`, `start`)
+
 ---
 
 ## Usage Guide
@@ -75,6 +81,7 @@ When asked about Sui Move development tasks, this skill provides:
 4. **Best Practices** - Security patterns, error handling, upgrade strategies
 
 For toolchain install/version selection tasks, read `references/suiup.md` first, then apply `scripts/setup_suiup.sh` for a reproducible setup flow.
+For full-stack project scaffolding tasks, read `references/sui-dapp-starter.md`, then use `scripts/init_sui_dapp_starter.sh` to bootstrap interactively.
 
 ---
 
@@ -131,10 +138,12 @@ sui-dev-skill/
 │   ├── core_topics.md           # Core concepts detailed guide
 │   ├── object_model.md          # Object model deep dive
 │   ├── ptb_guide.md             # PTB usage guide
+│   ├── sui-dapp-starter.md      # Full-stack starter workflow and commands
 │   └── suiup.md                 # Toolchain installation and version management
 └── scripts/                     # Scripts and code examples
     ├── setup_env.sh             # Environment setup script
     ├── setup_suiup.sh           # Preferred toolchain bootstrap via suiup
+    ├── init_sui_dapp_starter.sh # Bootstrap the sui-dapp-starter template
     ├── deploy.sh                # Deployment script
     ├── version_check.sh         # Bytecode diff checker
     ├── version_conflict_check.sh # Directory conflict checker
@@ -152,6 +161,7 @@ sui-dev-skill/
 - [Sui Documentation](https://docs.sui.io) - Sui platform documentation
 - [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
 - [suiup](https://github.com/MystenLabs/suiup) - Installer and version manager for Sui ecosystem CLIs
+- [sui-dapp-starter](https://github.com/suiware/sui-dapp-starter) - Full-stack Sui dApp starter template
 
 ---
 

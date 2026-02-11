@@ -11,6 +11,7 @@ A comprehensive skill for Sui blockchain Move smart contract development. This s
 - **Deployment Automation** - Build, test, and publish scripts
 - **Upgrade Strategies** - Version management and migration patterns
 - **Toolchain Management** - Install and switch Sui CLI versions with `suiup`
+- **Full-Stack Starter** - Bootstrap Sui dApps with `sui-dapp-starter`
 
 ## Directory Structure
 
@@ -22,10 +23,12 @@ sui-dev-skill/
 │   ├── core_topics.md          # Core concepts guide
 │   ├── object_model.md         # Object model deep dive
 │   ├── ptb_guide.md            # PTB usage guide
+│   ├── sui-dapp-starter.md     # Full-stack starter guide
 │   └── suiup.md                # suiup install/version guide
 └── scripts/                    # Code examples and utilities
     ├── setup_env.sh            # Environment setup
     ├── setup_suiup.sh          # Preferred setup via suiup
+    ├── init_sui_dapp_starter.sh # Starter template bootstrap
     ├── deploy.sh               # Deployment automation
     ├── example_module.move     # Basic module template
     ├── ownership_examples.move # Ownership patterns
@@ -57,8 +60,15 @@ cargo install --git https://github.com/MystenLabs/sui.git --branch main sui-cli
 ### 2. Create a New Project
 
 ```bash
+# Option A: New Move package
 sui move new my_project
 cd my_project
+
+# Option B: Full-stack starter template (interactive)
+./scripts/init_sui_dapp_starter.sh
+
+# Or directly:
+pnpm create sui-dapp@latest
 ```
 
 ### 3. Build and Test
@@ -144,6 +154,7 @@ await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
 - [`references/core_topics.md`](references/core_topics.md) - Complete guide to Move and Sui concepts
 - [`references/object_model.md`](references/object_model.md) - Deep dive into Sui's object model
 - [`references/ptb_guide.md`](references/ptb_guide.md) - Programmable Transaction Blocks guide
+- [`references/sui-dapp-starter.md`](references/sui-dapp-starter.md) - Full-stack starter setup and workflows
 - [`references/suiup.md`](references/suiup.md) - `suiup` install and version management
 
 ## External Resources
@@ -152,6 +163,7 @@ await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
 - [Sui Documentation](https://docs.sui.io) - Sui platform documentation
 - [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
 - [Sui TypeScript SDK](https://sdk.mystenlabs.com/typescript) - TypeScript SDK documentation
+- [sui-dapp-starter](https://github.com/suiware/sui-dapp-starter) - Sui full-stack starter templates
 - [suiup](https://github.com/MystenLabs/suiup) - Sui ecosystem CLI version manager
 
 ## Version
