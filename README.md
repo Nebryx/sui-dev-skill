@@ -9,6 +9,7 @@ A comprehensive skill for Sui blockchain Move smart contract development. This s
 - **Programmable Transaction Blocks (PTB)** - Multi-command transactions
 - **Sui TypeScript SDK** - Client setup, transaction execution, and signing workflows
 - **CTF Security Practice** - Learn exploit/defense patterns with MystenLabs CTF
+- **Ecosystem Landscape** - Curated Sui project map from `awesome-sui`
 - **Testing Patterns** - Unit tests, scenario tests, expected failures
 - **Deployment Automation** - Build, test, and publish scripts
 - **Upgrade Strategies** - Version management and migration patterns
@@ -27,6 +28,7 @@ sui-dev-skill/
 │   ├── move-book-essentials.md # Key Move Book semantics
 │   ├── object_model.md         # Object model deep dive
 │   ├── ptb_guide.md            # PTB usage guide
+│   ├── awesome-sui-landscape.md # Ecosystem project selection guide
 │   ├── sui-dapp-starter.md     # Full-stack starter guide
 │   ├── sui-ctf.md              # MystenLabs CTF guide
 │   ├── sui-ts-sdk.md           # TS SDK integration guide
@@ -165,6 +167,7 @@ await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
 - [`references/move-book-essentials.md`](references/move-book-essentials.md) - Essential Move Book rules and patterns
 - [`references/object_model.md`](references/object_model.md) - Deep dive into Sui's object model
 - [`references/ptb_guide.md`](references/ptb_guide.md) - Programmable Transaction Blocks guide
+- [`references/awesome-sui-landscape.md`](references/awesome-sui-landscape.md) - Ecosystem categories and tool selection
 - [`references/sui-dapp-starter.md`](references/sui-dapp-starter.md) - Full-stack starter setup and workflows
 - [`references/sui-ctf.md`](references/sui-ctf.md) - MystenLabs CTF setup and solving workflow
 - [`references/sui-ts-sdk.md`](references/sui-ts-sdk.md) - Sui TypeScript SDK client and transaction patterns
@@ -177,6 +180,7 @@ await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
 - [Sui Documentation](https://docs.sui.io) - Sui platform documentation
 - [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
 - [Sui TypeScript SDK](https://sdk.mystenlabs.com/sui) - Official SDK docs for Sui integrations
+- [Awesome Sui](https://github.com/sui-foundation/awesome-sui) - Curated list of Sui tools and projects
 - [MystenLabs CTF](https://github.com/MystenLabs/CTF) - Official Sui Move CTF challenges
 - [sui-dapp-starter](https://github.com/suiware/sui-dapp-starter) - Sui full-stack starter templates
 - [suiup](https://github.com/MystenLabs/suiup) - Sui ecosystem CLI version manager
