@@ -7,6 +7,7 @@ A comprehensive skill for Sui blockchain Move smart contract development. This s
 - **Move Language Fundamentals** - Types, abilities, borrowing, generics
 - **Sui Object Model** - Objects, ownership, transfers, dynamic fields
 - **Programmable Transaction Blocks (PTB)** - Multi-command transactions
+- **Sui TypeScript SDK** - Client setup, transaction execution, and signing workflows
 - **Testing Patterns** - Unit tests, scenario tests, expected failures
 - **Deployment Automation** - Build, test, and publish scripts
 - **Upgrade Strategies** - Version management and migration patterns
@@ -26,6 +27,7 @@ sui-dev-skill/
 │   ├── object_model.md         # Object model deep dive
 │   ├── ptb_guide.md            # PTB usage guide
 │   ├── sui-dapp-starter.md     # Full-stack starter guide
+│   ├── sui-ts-sdk.md           # TS SDK integration guide
 │   └── suiup.md                # suiup install/version guide
 └── scripts/                    # Code examples and utilities
     ├── setup_env.sh            # Environment setup
@@ -158,6 +160,7 @@ await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
 - [`references/object_model.md`](references/object_model.md) - Deep dive into Sui's object model
 - [`references/ptb_guide.md`](references/ptb_guide.md) - Programmable Transaction Blocks guide
 - [`references/sui-dapp-starter.md`](references/sui-dapp-starter.md) - Full-stack starter setup and workflows
+- [`references/sui-ts-sdk.md`](references/sui-ts-sdk.md) - Sui TypeScript SDK client and transaction patterns
 - [`references/suiup.md`](references/suiup.md) - `suiup` install and version management
 
 ## External Resources
@@ -166,7 +169,7 @@ await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
 - [Move Book Reference](https://move-book.com/reference/) - Detailed language semantics
 - [Sui Documentation](https://docs.sui.io) - Sui platform documentation
 - [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
-- [Sui TypeScript SDK](https://sdk.mystenlabs.com/typescript) - TypeScript SDK documentation
+- [Sui TypeScript SDK](https://sdk.mystenlabs.com/sui) - Official SDK docs for Sui integrations
 - [sui-dapp-starter](https://github.com/suiware/sui-dapp-starter) - Sui full-stack starter templates
 - [suiup](https://github.com/MystenLabs/suiup) - Sui ecosystem CLI version manager
 

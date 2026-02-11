@@ -1,6 +1,6 @@
 ---
 name: sui-move
-description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, dynamic fields, toolchain setup with suiup, full-stack dApp bootstrapping with sui-dapp-starter, Move Book language semantics, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
+description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, Sui TypeScript SDK usage, dynamic fields, toolchain setup with suiup, full-stack dApp bootstrapping with sui-dapp-starter, Move Book language semantics, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
 version: 2.0.0
 ---
 
@@ -75,6 +75,12 @@ This skill provides comprehensive guidance, reusable code snippets, reference do
 - Use package, named-address, and visibility rules to structure modules correctly
 - Use test annotations (`#[test]`, `#[expected_failure]`, `#[test_only]`) precisely
 
+### 12. Sui TypeScript SDK Integration
+- Select the right client transport (`gRPC`, `GraphQL`, `JSON-RPC`) and prefer Core API for portability
+- Build, sign, and execute programmable transactions with robust post-confirmation checks
+- Work with keypairs, signatures, and faucet funding flows for Devnet/Testnet/localnet
+- Use modular SDK packages to keep integration code minimal and explicit
+
 ---
 
 ## Usage Guide
@@ -89,6 +95,7 @@ When asked about Sui Move development tasks, this skill provides:
 For toolchain install/version selection tasks, read `references/suiup.md` first, then apply `scripts/setup_suiup.sh` for a reproducible setup flow.
 For full-stack project scaffolding tasks, read `references/sui-dapp-starter.md`, then use `scripts/init_sui_dapp_starter.sh` to bootstrap interactively.
 For Move language semantics and syntax decisions, read `references/move-book-essentials.md` first.
+For off-chain integration and transaction orchestration in TypeScript, read `references/sui-ts-sdk.md` first.
 
 ---
 
@@ -147,6 +154,7 @@ sui-dev-skill/
 │   ├── object_model.md          # Object model deep dive
 │   ├── ptb_guide.md             # PTB usage guide
 │   ├── sui-dapp-starter.md      # Full-stack starter workflow and commands
+│   ├── sui-ts-sdk.md            # Sui TS SDK client/tx/signing quick reference
 │   └── suiup.md                 # Toolchain installation and version management
 └── scripts/                     # Scripts and code examples
     ├── setup_env.sh             # Environment setup script
@@ -169,6 +177,7 @@ sui-dev-skill/
 - [Move Book Reference](https://move-book.com/reference/) - Canonical language semantics
 - [Sui Documentation](https://docs.sui.io) - Sui platform documentation
 - [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
+- [Sui TypeScript SDK](https://sdk.mystenlabs.com/sui) - Official TS SDK docs (v2+)
 - [suiup](https://github.com/MystenLabs/suiup) - Installer and version manager for Sui ecosystem CLIs
 - [sui-dapp-starter](https://github.com/suiware/sui-dapp-starter) - Full-stack Sui dApp starter template
 
