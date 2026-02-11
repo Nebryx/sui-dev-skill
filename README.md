@@ -12,6 +12,7 @@ A comprehensive skill for Sui blockchain Move smart contract development. This s
 - **Upgrade Strategies** - Version management and migration patterns
 - **Toolchain Management** - Install and switch Sui CLI versions with `suiup`
 - **Full-Stack Starter** - Bootstrap Sui dApps with `sui-dapp-starter`
+- **Move Language Canon** - Consolidated key rules from Move Book
 
 ## Directory Structure
 
@@ -21,6 +22,7 @@ sui-dev-skill/
 ├── README.md                   # This file
 ├── references/                 # Reference documentation
 │   ├── core_topics.md          # Core concepts guide
+│   ├── move-book-essentials.md # Key Move Book semantics
 │   ├── object_model.md         # Object model deep dive
 │   ├── ptb_guide.md            # PTB usage guide
 │   ├── sui-dapp-starter.md     # Full-stack starter guide
@@ -152,6 +154,7 @@ await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
 ## Reference Documentation
 
 - [`references/core_topics.md`](references/core_topics.md) - Complete guide to Move and Sui concepts
+- [`references/move-book-essentials.md`](references/move-book-essentials.md) - Essential Move Book rules and patterns
 - [`references/object_model.md`](references/object_model.md) - Deep dive into Sui's object model
 - [`references/ptb_guide.md`](references/ptb_guide.md) - Programmable Transaction Blocks guide
 - [`references/sui-dapp-starter.md`](references/sui-dapp-starter.md) - Full-stack starter setup and workflows
@@ -160,6 +163,7 @@ await client.signAndExecuteTransaction({ signer: keypair, transaction: tx });
 ## External Resources
 
 - [Move Book](https://move-book.com) - Official Move language tutorial
+- [Move Book Reference](https://move-book.com/reference/) - Detailed language semantics
 - [Sui Documentation](https://docs.sui.io) - Sui platform documentation
 - [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
 - [Sui TypeScript SDK](https://sdk.mystenlabs.com/typescript) - TypeScript SDK documentation

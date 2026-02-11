@@ -1,6 +1,6 @@
 ---
 name: sui-move
-description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, dynamic fields, toolchain setup with suiup, full-stack dApp bootstrapping with sui-dapp-starter, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
+description: Sui Move smart contract development skill covering object model, ownership system, PTB transactions, dynamic fields, toolchain setup with suiup, full-stack dApp bootstrapping with sui-dapp-starter, Move Book language semantics, and core concepts. Provides comprehensive guidance for Sui blockchain Move development, testing, deployment, and upgrades.
 version: 2.0.0
 ---
 
@@ -69,6 +69,12 @@ This skill provides comprehensive guidance, reusable code snippets, reference do
 - Initialize starter templates: Greeting (React), Greeting (Next.js), Counter (React)
 - Follow localnet workflow (`localnet:start`, `localnet:deploy`, `localnet:faucet`, `start`)
 
+### 11. Move Book Core Semantics
+- Apply canonical Move language rules from Move Book reference chapters
+- Use ability/borrowing semantics to prevent resource safety bugs
+- Use package, named-address, and visibility rules to structure modules correctly
+- Use test annotations (`#[test]`, `#[expected_failure]`, `#[test_only]`) precisely
+
 ---
 
 ## Usage Guide
@@ -82,6 +88,7 @@ When asked about Sui Move development tasks, this skill provides:
 
 For toolchain install/version selection tasks, read `references/suiup.md` first, then apply `scripts/setup_suiup.sh` for a reproducible setup flow.
 For full-stack project scaffolding tasks, read `references/sui-dapp-starter.md`, then use `scripts/init_sui_dapp_starter.sh` to bootstrap interactively.
+For Move language semantics and syntax decisions, read `references/move-book-essentials.md` first.
 
 ---
 
@@ -136,6 +143,7 @@ sui-dev-skill/
 ├── README.md                    # Project documentation
 ├── references/                  # Reference documentation
 │   ├── core_topics.md           # Core concepts detailed guide
+│   ├── move-book-essentials.md  # Key Move Book rules and quick map
 │   ├── object_model.md          # Object model deep dive
 │   ├── ptb_guide.md             # PTB usage guide
 │   ├── sui-dapp-starter.md      # Full-stack starter workflow and commands
@@ -158,6 +166,7 @@ sui-dev-skill/
 ## External Resources
 
 - [Move Book](https://move-book.com) - Official Move language tutorial
+- [Move Book Reference](https://move-book.com/reference/) - Canonical language semantics
 - [Sui Documentation](https://docs.sui.io) - Sui platform documentation
 - [Sui GitHub](https://github.com/MystenLabs/sui) - Source code and examples
 - [suiup](https://github.com/MystenLabs/suiup) - Installer and version manager for Sui ecosystem CLIs
